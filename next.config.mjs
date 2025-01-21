@@ -1,12 +1,12 @@
-// Load environment variables from .env file
-require('dotenv').config();
+// Load environment variables from .env file using ES module syntax
+import dotenv from 'dotenv';
+dotenv.config();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     domains: ['cdn.sanity.io'], // Allow images from Sanity CDN
   },
-  // You can add other Next.js configurations here
   env: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
@@ -15,16 +15,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
-
-
-
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//     images: {
-//       domains: ['cdn.sanity.io'],
-//     },
-//   };
-  
-//   export default nextConfig;
-  
