@@ -1,5 +1,4 @@
-// components/FetchHeroData.js
-"use client"; // Ensure this is a Client Component
+"use client"; 
 import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 

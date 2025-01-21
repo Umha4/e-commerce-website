@@ -97,7 +97,7 @@ export default function BlogsPage() {
               </div>
 
               <button className="mt-4 text-sm font-semibold text-blue-600 hover:underline">
-                Learn More →
+                Learn More 
               </button>
             </div>
           </div>
