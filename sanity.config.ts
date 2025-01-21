@@ -1,39 +1,37 @@
-'use client'
-
+'use client';
 
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...tool]]\page.tsx` route
+ * This configuration is for the Sanity Studio mounted at the `\src\app\studio\[[...tool]]\page.tsx` route.
  */
 
-import {visionTool} from '@sanity/vision'
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
+import { visionTool } from '@sanity/vision';
+import { defineConfig } from 'sanity';
+import { deskTool } from 'sanity/desk'; // Desk tool is commonly used for basic CMS needs.
+import { apiVersion, dataset, projectId } from './src/sanity/env';
+import Hero from '@/sanity/schemaTypes/ShopHero';
+import { product } from '@/sanity/schemaTypes/product';
 
-// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import {apiVersion, dataset, projectId} from './src/sanity/env'
-// import {schema} from './src/sanity/schemaTypes'
-import {structure} from './src/sanity/structure'
-import Hero from '@/sanity/schemaTypes/ShopHero'
-import { product } from '@/sanity/schemaTypes/product'
-// import Hero from './schemas/product';
-
-
-
+// Define your schema types
+const schemaTypes = [Hero, product];
 
 export default defineConfig({
+  name: 'default',
+  title: 'Sanity Studio',
+
+  basePath: '/studio', // Base path for your Sanity Studio
+  projectId: projectId,
+  dataset: dataset,
+  apiVersion: apiVersion,
+
   schema: {
-    types: [Hero,product],
+    types: schemaTypes, // Schema types
   },
-  basePath: '/studio',
-  projectId,
-  dataset,
-  // Add and edit the content schema in the './sanity/schemaTypes' folder
-  // schema,
+
   plugins: [
-    structureTool({structure}),
-    // Vision is for querying with GROQ from inside the Studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({defaultApiVersion: apiVersion}),
-    
+    deskTool(), // Default desk tool for managing documents
+    visionTool({
+      defaultApiVersion: apiVersion, // Vision tool for GROQ queries
+    }),
   ],
-})
+});
+
