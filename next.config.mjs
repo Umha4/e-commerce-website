@@ -1,4 +1,4 @@
-// Load environment variables from .env file using ES module syntax
+// Import dotenv for ES module context
 import dotenv from 'dotenv';
 dotenv.config();
 

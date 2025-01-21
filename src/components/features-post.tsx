@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
+import Image from "next/image";
 
 
 // Define data structure
@@ -61,7 +62,7 @@ export default function HeroPage() {
     <main className="flex flex-col lg:flex-row items-center gap-10 justify-center py-10 px-4 lg:px-24">
       {/* Left Side: Image */}
       <div className="w-[1600px] lg:w-1/2 ">
-        <img
+        <Image
           src={data.image.asset.url}
           alt={data.title}
           className="w-[1800px] h-[600px] ml-10  object-cover rounded-lg shadow-lg"

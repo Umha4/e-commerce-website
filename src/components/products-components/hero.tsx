@@ -1,6 +1,7 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { PiCirclesFourFill } from "react-icons/pi";
 import FetchData from "../HomeFetch";
+import Image from "next/image";
 
 export default function HomeHero() {
   return (
@@ -14,7 +15,7 @@ export default function HomeHero() {
                 key={item._id}
                 className="bg-white shadow-md rounded-lg overflow-hidden w-80 transform hover:scale-105 transition-transform duration-300"
               >
-                <img
+                <Image
                   src={item.imageUrl}
                   alt={item.title}
                   className="w-full h-48 object-cover"
