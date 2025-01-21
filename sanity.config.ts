@@ -11,6 +11,7 @@ import { apiVersion, dataset, projectId } from './src/sanity/env';
 import Hero from '@/sanity/schemaTypes/ShopHero';
 import { product } from '@/sanity/schemaTypes/product';
 
+
 // Define your schema types
 const schemaTypes = [Hero, product];
 
